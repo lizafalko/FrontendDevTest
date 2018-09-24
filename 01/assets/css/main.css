@@ -4,6 +4,14 @@
   font-weight: normal;
 }
 
+body {
+  background: url(../img/back.png) no-repeat;
+}
+
+li {
+  list-style-type: none;
+}
+
 .heading {
   display: flex;
   flex-direction: column;
@@ -16,8 +24,24 @@
 }
 
 .heading__img {
-  min-width: 100%;
+  min-width: 50%;
   margin-top: -110px;
+}
+
+.main-block__img {
+  margin-left: 200px;
+  margin-top: -50px;
+}
+
+.main-block__grid {
+  display: flex;
+  margin-left: 70px;
+  font-size: 22px;
+}
+
+.main-block__list {
+  margin-bottom: 60px;
+  color: #dd7628;
 }
 
 @media screen and (max-width: 1010px) {
