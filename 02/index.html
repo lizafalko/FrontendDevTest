@@ -7,19 +7,56 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <title></title>
-    <link href="css/main.css" rel="stylesheet">>
+    <link href="css/main.css" rel="stylesheet">
 </head>
 <body>
     <div id="background">
-
+      <div class="container">
+        <div class="element" id="one"></div>
+        <div class="element" id="two"></div>
+        <div class="element" id="three"></div>
+        <div class="element" id="four"></div>
+      </div>
+      <div class="buttons">
+        <button class="button" type="button" id="css">Run CSS</button>
+        <button class="button" type="button" id="jquery">Run jQuery</button>
+      </div>
     </div>
     <script src="js/jquery-2.1.1.min.js"></script>
     <script src="js/jquery-ui-1.10.4.min.js"></script>
     <script src="js/jquery.ui.touch-punch.min.js"></script>
+    <script src="https://rawgit.com/zachstronaut/jquery-animate-css-rotate-scale/master/jquery-animate-css-rotate-scale.js"></script>
     <script>
         $(function () {
-           
-        });
+          document.getElementById('css').addEventListener('click', e => {
+            document.getElementById('one').classList.toggle('fade')
+            document.getElementById('two').classList.toggle('rotate')
+            document.getElementById('three').classList.toggle('scale')
+            document.getElementById('four').classList.toggle('translate')
+          })
+
+
+          $('#jquery').click( e => {
+            $('#one').animate({
+              'opacity': '.2'
+            }, 300)
+
+            $('#two').animate({
+              'rotate': '60deg'
+            }, 300)
+
+            $('#three').animate({
+              'scale': '1.2'
+            }, 300)
+
+            $('#four').css({
+              'position': 'relative'
+            }).animate({
+              'left': '10px',
+              'top': '10px'
+            }, 300)
+          })
+        })
     </script>
 </body>
 
