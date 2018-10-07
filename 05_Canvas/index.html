@@ -9,7 +9,7 @@
     <title></title>
     <link href="css/main.css" rel="stylesheet">
     <style type="text/css">
-        
+
 	#slide-index-background {
 		 left: 0px;
 		 top: 0px;
@@ -26,13 +26,31 @@
 <body>
     <div id="slide-index-background">
         <canvas id='screen' width='1024' height='768'></canvas>
-    </div>  
+    </div>
     <script src="js/jquery-2.1.1.min.js"></script>
     <script src="js/jquery-ui-1.10.4.min.js"></script>
     <script src="js/jquery.ui.touch-punch.min.js"></script>
     <script>
         $(function () {
-           
+          var c = document.getElementById('screen')
+          var ctx = c.getContext('2d')
+
+          // линия
+          ctx.moveTo(0, 0)
+          ctx.lineTo(200, 100)
+          ctx.stroke()
+
+          // прямоугольник
+          ctx.moveTo(200, 200)
+          ctx.lineTo(400, 200)
+          ctx.lineTo(400, 300)
+          ctx.lineTo(200, 300)
+          ctx.lineTo(200, 200)
+          ctx.stroke()
+
+          // текст
+          ctx.font = '30px Arial';
+          ctx.fillText('Hello World', 222, 262);
         });
     </script>
 </body>
