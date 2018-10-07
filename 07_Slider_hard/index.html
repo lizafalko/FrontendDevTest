@@ -14,6 +14,47 @@
     <script src="js/jquery.ui.touch-punch.min.js"></script>
     <script>
         $(function () {
+          let persons = []
+
+          Array.prototype.slice.call(document.getElementById('map').children).forEach(person => {
+            const rect = person.getBoundingClientRect()
+            persons.push({
+              x: (rect.x * 2 + rect.width) / 2,
+              y: (rect.y * 2 + rect.height) / 2,
+              node: person
+            })
+          })
+
+          const inside = (a, c) => (x, y) =>
+            (x > a.x && x < c.x) &&
+            (y > a.y && y < c.y)
+
+          const slide = () => {
+            const red = document.getElementById('red').getBoundingClientRect()
+            const yellow = document.getElementById('yellow').getBoundingClientRect()
+
+            const check = inside({
+              x: yellow.x,
+              y: red.y
+            }, {
+              x: yellow.x + yellow.width,
+              y: red.x + red.width
+            })
+
+            persons.forEach(person => {
+              person.node.style.backgroundImage = check(person.x, person.y) ? 'url(images/refract/man_red.png)' : 'url(images/refract/man_white.png) '
+            })
+          }
+
+          $('.drag_yellow_wrapper').slider({
+            slide: slide
+          })
+          $('.drag_red_wrapper').slider({
+            orientation: 'vertical',
+            slide: slide
+          })
+
+
         });
     </script>
 </head>
@@ -22,7 +63,7 @@
     <div class="wrapper">
         <div class="Stage_base">
             <div class="map_area">
-                <ul class="map">
+                <ul class="map" id="map">
                     <li></li>
                     <li class="yellow"></li>
                     <li class="yellow"></li>
@@ -34,10 +75,10 @@
                     <li></li>
                 </ul>
                 <div class="drag_red_wrapper">
-                    <div class="drag_red"></div>
+                    <div class="drag_red ui-slider-handle" id="red"></div>
                 </div>
                 <div class="drag_yellow_wrapper">
-                    <div class="drag_yellow"></div>
+                    <div class="drag_yellow ui-slider-handle" id="yellow"></div>
                 </div>
             </div>
         </div>
