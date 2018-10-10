@@ -630,4 +630,218 @@ text-align:left!important;
      background:url(../images/home/new/i1.png);
 } 
 
+@keyframes hours {
+  from {
+    transform: rotate(0deg);
+  } to {
+    transform: rotate(450deg);
+  }
+}
+
+@keyframes minutes {
+  from {
+    transform: rotate(0deg);
+  } to {
+    transform: rotate(5400deg);
+  }
+}
+
+.arr_hour {
+  animation-name: hours;
+  animation-duration: 10s;
+  animation-fill-mode: forwards;
+  animation-timing-function: linear;
+}
+
+.arr_minute {
+  animation-name: minutes;
+  animation-duration: 10s;
+  animation-fill-mode: forwards;
+  animation-timing-function: linear;
+}
+
+
+
+.graph1 {
+  position: relative;
+  top: -546px;
+  left: 308px;
+  width: 544px;
+  height: 544px;
+  border-radius: 50%;
+  background: white;
+  opacity: .5;
+  z-index: -1;
+}
+
+.graph1-mask {
+  position: absolute;
+  width: 514px;
+  height: 514px;
+  background: #fff center center no-repeat;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  z-index: 1000;
+  -webkit-transform: translate3d(-50%, -50%, 0);
+}
+
+.slice1-content {
+  position: absolute;
+  width: 544px;
+  height: 544px;
+  border-radius: 50%;
+  clip: rect(0px, 272px, 544px, 0px);
+}
+
+.slice1 {
+  position: absolute;
+  width: 544px;
+  height: 544px;
+  border-radius: 50%;
+  clip: rect(0px, 544px, 544px, 272px)
+}
+
+.slice1-mask {
+  transform: rotate(270deg);
+}
+.slice1-mask .slice1-content {
+  background: #fff;
+  transform: rotate(135deg);
+}
+
+.slice1-fill {
+  transform: rotate(270deg);
+}
+.slice1-fill .slice1-content {
+  background: #3ea8b5;
+  animation: graph-one 2s 4s linear forwards;
+}
+
+.graph2 {
+  position: relative;
+  top: -1054px;
+  left: 343px;
+  width: 474px;
+  height: 474px;
+  border-radius: 50%;
+  background: white;
+  opacity: .5;
+  /*z-index: -1;*/
+}
+
+.graph2-mask {
+  position: absolute;
+  width: 434px;
+  height: 434px;
+  background: #fff center center no-repeat;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  z-index: 1000;
+  -webkit-transform: translate3d(-50%, -50%, 0);
+}
+
+.slice2-content {
+  position: absolute;
+  width: 474px;
+  height: 474px;
+  border-radius: 50%;
+  clip: rect(0px, 237px, 474px, 0px);
+}
+
+.slice2 {
+  position: absolute;
+  width: 474px;
+  height: 474px;
+  border-radius: 50%;
+  clip: rect(0px, 474px, 474px, 237px)
+}
+
+.slice2-mask {
+  transform: rotate(45deg);
+}
+.slice2-mask .slice2-content {
+  background: #fff;
+  transform: rotate(135deg);
+}
+
+.slice2-fill {
+  transform: rotate(240deg);
+}
+.slice2-fill .slice2-content {
+  background: #3ea8b5;
+  animation: graph-two 2s 0s linear forwards;
+}
+
+.graph3 {
+  position: relative;
+  top: -1528px;
+  left: 343px;
+  width: 474px;
+  height: 474px;
+  border-radius: 50%;
+  background: white;
+  opacity: .5;
+  /*z-index: -1;*/
+}
+
+.graph3-mask {
+  position: absolute;
+  width: 434px;
+  height: 434px;
+  background: #fff center center no-repeat;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  z-index: 1000;
+  -webkit-transform: translate3d(-50%, -50%, 0);
+}
+
+.slice3-content {
+  position: absolute;
+  width: 474px;
+  height: 474px;
+  border-radius: 50%;
+  clip: rect(0px, 237px, 474px, 0px);
+}
+
+.slice3 {
+  position: absolute;
+  width: 474px;
+  height: 474px;
+  border-radius: 50%;
+  clip: rect(0px, 474px, 474px, 237px)
+}
+
+.slice3-mask {
+  transform: rotate(45deg);
+}
+.slice3-mask .slice3-content {
+  background: #fff;
+  /*transform: rotate(315deg);*/
+}
+
+.slice3-fill {
+  transform: rotate(60deg);
+}
+.slice3-fill .slice3-content {
+  background: #3ea8b5;
+  animation: graph-three 2s 2s linear forwards;
+}
+
+@keyframes graph-one {
+  0% {transform: rotate(0deg);}
+  100% {transform: rotate(90deg);}
+}
+
+@keyframes graph-two {
+  0% {transform: rotate(0deg);}
+  100% {transform: rotate(180deg);}
+}
+
+@keyframes graph-three {
+  0% {transform: rotate(0deg);}
+  100% {transform: rotate(170deg);}
+}
 

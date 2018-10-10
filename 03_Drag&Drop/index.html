@@ -24,7 +24,36 @@
     <script src="js/jquery.ui.touch-punch.min.js"></script>
     <script>
         $(function () {
+            let giftCount = 4
+            $('.gift').each(function () {
+                $(this).data('left', $(this).css('left'))
+                $(this).data('top', $(this).css('top'))
 
+                $(this).draggable({
+                    stop: function () {
+                        // left: 100 - 250
+                        // top: 200 - 300
+                        const left = parseInt($(this).css('left'))
+                        const top = parseInt($(this).css('top'))
+
+                        if (left > 100 && left < 250 && top > 200 && top < 300) {
+                            $(this).draggable('destroy')
+                            giftCount -= 1
+                            $(this).addClass('fallen')
+                        } else {
+                            $(this).css({
+                                'left': $(this).data('left'),
+                                'top': $(this).data('top')
+                            })
+                        }
+
+                        if (giftCount <= 0) {
+                            $('.content').addClass('active')
+                        }
+
+                    }
+                })
+            })
         });
     </script>
 </body>
